@@ -2,7 +2,7 @@ import { StyledMovieCard} from '../Styles/MovieCard.styled';
 import MovieCardFooter from '../Molecules/MovieCardFooter';
 function MovieCard (props) {
 
-    const {movie} = props;
+    const {movie, openModal} = props;
     console.log(props)
 
 
@@ -13,7 +13,7 @@ function MovieCard (props) {
             <div>
                 <p>{movie.overview}</p>
             </div>
-            <MovieCardFooter/>
+            <MovieCardFooter openModal={openModal}/>
         </StyledMovieCard>
     )
 }

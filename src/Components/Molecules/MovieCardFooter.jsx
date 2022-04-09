@@ -1,11 +1,10 @@
 import Button from "../Atoms/Button";
 
-function MovieCardFooter() {
-
-
+function MovieCardFooter(props) {
+    const {openModal} = props;
     return(
         <div>
-            <Button title='Añadir'/>
+            <Button onClick={openModal} title='Añadir'/>
         </div>
     )
 }
