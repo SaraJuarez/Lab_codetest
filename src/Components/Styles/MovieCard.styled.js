@@ -15,18 +15,26 @@ export const StyledMovieCard = styled.div`
        height: 200px;
        border-radius: 15px;
     }
+`
 
-    div {
-        width: 250px;
-        overflow: hidden;
+export const StyledDescription = styled.div`
+    width: 250px;
+    overflow-x: scroll;
+`
 
-    } 
+export const StyledCardFooter = styled.div`
+/*     position: absolute; 
+    bottom: -30px; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-width: 250px;
 
-    p {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        word-wrap: break-word;
-        max-width: 300px;
-    } 
+`
+
+export const StyledCardLook = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `

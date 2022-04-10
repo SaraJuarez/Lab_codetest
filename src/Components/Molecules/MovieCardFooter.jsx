@@ -1,11 +1,13 @@
 import Button from "../Atoms/Button";
+import { StyledCardFooter } from "../Styles/MovieCard.styled";
 
 function MovieCardFooter(props) {
-    const {openModal} = props;
-    return(
-        <div>
-            <Button onClick={openModal} title='Añadir'/>
-        </div>
+    const { openModal, isFlipped, flipCard, movieId } = props;
+    return (
+        <StyledCardFooter>
+            <Button onClick={() => openModal(movieId)} title='Añadir' />
+            <Button onClick={flipCard} title={isFlipped ? 'Volver' : 'Ver más'} />
+        </StyledCardFooter>
     )
 }
 

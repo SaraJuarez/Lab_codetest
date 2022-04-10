@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledModal = styled.div `
+export const StyledModal = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
@@ -15,11 +15,12 @@ export const StyledModal = styled.div `
     transform: translate(-50%, -50%);
 `
 
-export const StyledModalSubcontainer = styled.div ` 
+export const StyledModalSubcontainer = styled.div` 
     width: 50%;
     height: 450px;
     border-radius: 16px;
     background: white;
     padding: 20px;
+    padding-top: 24px;
 `
 
