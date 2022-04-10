@@ -1,10 +1,10 @@
-import {StyledButton} from '../Styles/Button.styled';
+import { StyledButton } from '../Styles/Button.styled';
 
 
-function Button (props) {
+function Button(props) {
 
-    const {title, onClick} = props;
-    return(
+    const { title, onClick } = props;
+    return (
         <StyledButton onClick={onClick}>
             <p>{title}</p>
         </StyledButton>

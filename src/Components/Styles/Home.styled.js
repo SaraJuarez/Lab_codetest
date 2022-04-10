@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-export const StyledHome = styled.div `
+export const StyledHome = styled.div`
     background-color: #FFFFFF;
     h1 {
         margin: 0;
-        padding: 20px;
     }
 `
 

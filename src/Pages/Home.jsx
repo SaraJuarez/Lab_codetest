@@ -3,9 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { saveMovies } from '../redux/features/movies';
 import { getAllMovies } from "../Api/Api";
 import { StyledHome, StyledMovieContainer } from "../Components/Styles/Home.styled";
+import { StyledNav } from "../Components/Styles/Nav.styled";
 import MovieCard from "../Components/Organisms/MovieCard";
 import ModalComponent from "../Components/Organisms/Modal";
 import MovieRate from "../Components/Molecules/MovieRate";
+import Button from "../Components/Atoms/Button";
+import { Link } from 'react-router-dom';
 
 function Home() {
 
@@ -41,8 +44,11 @@ function Home() {
 
     return (
         <StyledHome>
-            {modalOpen && <ModalComponent content={<MovieRate movieId={movieId} />} handleClose={handleModalClose} open={modalOpen} />}
-            <h1>Home</h1>
+            {modalOpen && <ModalComponent content={<MovieRate handleModalClose={handleModalClose} movieId={movieId} />} handleClose={handleModalClose} open={modalOpen} />}
+            <StyledNav>
+                <h1>Home</h1>
+                <Link to="/myList"><Button title='Mi lista' /></Link>
+            </StyledNav>
             <StyledMovieContainer>
                 {moviesList !== [] &&
                     moviesList.map((element, index) => {
