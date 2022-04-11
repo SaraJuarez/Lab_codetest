@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { device } from './device';
 
 export const StyledMyListCard = styled.div`
     display: flex;
@@ -18,11 +18,24 @@ export const StyledMyListImage = styled.img`
     width: 200px;
     border-radius: 15px;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+
+    @media ${device.laptop} {
+        width: 150px;
+    }
+
+    @media ${device.tablet} { 
+        width: 100px;
+    }
 `
 
 export const StyledMyListDetails = styled.div`
     width: 250px;
     overflow-x: hidden;
+
+
+    @media ${device.tablet} { 
+        font-size: 12px;
+    }
 `
 
 export const StyledMyListNumber = styled.div`
@@ -31,4 +44,15 @@ export const StyledMyListNumber = styled.div`
     padding: 20px 35px;
     border-radius: 50px;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+
+    @media ${device.laptop} {
+        font-size: 35px;
+        padding: 10px 20px;
+    }
+
+    @media ${device.tablet} { 
+        font-size: 20px;
+        padding: 5px 10px;
+    }
+    
 `

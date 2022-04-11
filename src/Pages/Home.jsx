@@ -9,7 +9,7 @@ import ModalComponent from "../Components/Organisms/Modal";
 import MovieRate from "../Components/Molecules/MovieRate";
 import Button from "../Components/Atoms/Button";
 import { Link } from 'react-router-dom';
-
+import Loader from "../Components/Atoms/Loader";
 function Home() {
 
     const movies = useSelector((state) => state.movies);
@@ -29,33 +29,34 @@ function Home() {
     function handleModalClose() {
         setModalOpen(false)
     }
+    /* 
+        useEffect(() => {
+            saveAllMovies()
+        }, []) */
 
-    useEffect(() => {
-        saveAllMovies()
-    }, [])
 
 
-
-    const saveAllMovies = async () => {
-        let moviesList = await getAllMovies();
-        dispatch(saveMovies(moviesList.results))
-        setMoviesList(moviesList.results)
-    }
-
+    /*     const saveAllMovies = async () => {
+            let moviesList = await getAllMovies();
+            dispatch(saveMovies(moviesList.results))
+            setMoviesList(moviesList.results)
+        }
+     */
     return (
         <StyledHome>
             {modalOpen && <ModalComponent content={<MovieRate handleModalClose={handleModalClose} movieId={movieId} />} handleClose={handleModalClose} open={modalOpen} />}
             <StyledNav>
                 <h1>Home</h1>
-                <Link to="/myList"><Button title='Mi lista' /></Link>
+                <Link style={{ textDecoration: 'none' }} to="/myList"><Button title='Mi lista' /></Link>
+                {moviesList.length === 0 && <Loader />}
             </StyledNav>
             <StyledMovieContainer>
-                {moviesList !== [] &&
+                {/*      {moviesList !== [] &&
                     moviesList.map((element, index) => {
                         return (
                             <MovieCard openModal={handleModalOpen} key={index} movie={element} />
                         )
-                    })}
+                    })} */}
             </StyledMovieContainer>
         </StyledHome>
     )

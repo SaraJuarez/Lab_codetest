@@ -12,13 +12,15 @@ export const StyledMyList = styled.div`
 `
 
 export const StyledMyListContainer = styled.div`
-/*     display: grid;
-    grid-template-columns: 1;
-    grid-row-gap: 20px;
-    grid-column-gap: 20px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #ffff;
+
+    h2 {
+        position: absolute;
+        top: 50%;
+    }
     
 `

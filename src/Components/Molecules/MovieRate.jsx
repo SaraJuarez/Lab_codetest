@@ -4,6 +4,7 @@ import { StyledMovieCard } from "../Styles/MovieCard.styled";
 import Button from "../Atoms/Button";
 import { saveMyList } from "../../redux/features/myList";
 import Select from "../Atoms/Select";
+import { StyledMovieRate } from '../Styles/MovieRate.styled';
 
 function MovieRate(props) {
     const { movieId, handleModalClose } = props;
@@ -48,8 +49,8 @@ function MovieRate(props) {
     }
 
     return (
-        <div>
-            <p>{alreadyPresent === true ? '¿Quieres cambiar tu voto?' : 'Vota la película y guárdala en tu colección'}</p>
+        <StyledMovieRate>
+            <h2>{alreadyPresent === true ? '¿Quieres cambiar tu voto?' : 'Vota la película y guárdala en tu colección'}</h2>
             {alreadyPresent === true && <p>Tu voto anterior:{previousGrade} </p>}
             <StyledMovieCard>
                 <img
@@ -67,7 +68,7 @@ function MovieRate(props) {
                     <Button onClick={saveOnMyList} title={alreadyPresent === true ? 'Guardar nuevo voto' : 'Guardar'} />
                 </>
             )}
-        </div>
+        </StyledMovieRate>
     );
 }
 

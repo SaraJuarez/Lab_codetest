@@ -17,7 +17,7 @@ export const StyledModal = styled.div`
 
 export const StyledModalSubcontainer = styled.div` 
     width: 50%;
-    height: 450px;
+    height: fit-content;
     border-radius: 16px;
     background: white;
     padding: 20px;
