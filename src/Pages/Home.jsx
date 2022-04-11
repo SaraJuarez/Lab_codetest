@@ -1,39 +1,62 @@
-import React, {useEffect, useState} from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {saveMovies} from '../redux/features/movies';
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { saveMovies } from '../redux/features/movies';
 import { getAllMovies } from "../Api/Api";
 import { StyledHome, StyledMovieContainer } from "../Components/Styles/Home.styled";
+import { StyledNav } from "../Components/Styles/Nav.styled";
 import MovieCard from "../Components/Organisms/MovieCard";
-function Home () {
+import ModalComponent from "../Components/Organisms/Modal";
+import MovieRate from "../Components/Molecules/MovieRate";
+import Button from "../Components/Atoms/Button";
+import { Link } from 'react-router-dom';
+import Loader from "../Components/Atoms/Loader";
 
-    const movies = useSelector((state) => state.movies);
-    console.log(movies)
-    const [moviesList, setMoviesList] = useState([]);
+function Home() {
+
     const dispatch = useDispatch();
 
+    const [moviesList, setMoviesList] = useState([]);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [movieId, setMovieId] = useState();
+
+
+    function handleModalOpen(movieId) {
+        setMovieId(movieId)
+        setModalOpen(true)
+    }
+
+    function handleModalClose() {
+        setModalOpen(false)
+    }
+
     useEffect(() => {
-        saveAllMovies()
+        setTimeout(saveAllMovies, 3000)
     }, [])
 
 
 
-    const saveAllMovies = async() => {
+    const saveAllMovies = async () => {
         let moviesList = await getAllMovies();
-        dispatch(saveMovies(moviesList.results)) 
+        dispatch(saveMovies(moviesList.results))
         setMoviesList(moviesList.results)
-        debugger
     }
 
-    return(
+    return (
         <StyledHome>
-            <h1>Home</h1>
+            {modalOpen && <ModalComponent content={<MovieRate handleModalClose={handleModalClose} movieId={movieId} />} handleClose={handleModalClose} open={modalOpen} />}
+            <StyledNav>
+                <h1>Home</h1>
+                <Link style={{ textDecoration: 'none' }} to="/myList"><Button title='Mi lista' /></Link>
+            </StyledNav>
             <StyledMovieContainer>
-                {moviesList !== [] && 
-                moviesList.map((element, index)=>{
-                    return(
-                        <MovieCard key={index} movie={element}/>
-                    )
-                })}
+                {moviesList.length > 0 ?
+                    moviesList.map((element, index) => {
+                        return (
+                            <MovieCard openModal={handleModalOpen} key={index} movie={element} />
+                        )
+                    })
+                    : <Loader />
+                }
             </StyledMovieContainer>
         </StyledHome>
     )
