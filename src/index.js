@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-    <GlobalStyle/>
+      <GlobalStyle />
       <App />
     </BrowserRouter>
   </Provider>

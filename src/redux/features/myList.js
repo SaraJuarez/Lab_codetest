@@ -8,12 +8,6 @@ export const myListSlice = createSlice({
             return action.payload
         }
     },
-    /*     actions: {
-            addMovies:(state, act) => ({...state, count: state.count + 1 }),
-            DECREMENT: (state, act) => ({...state, count: state.count - 1 })
-            
-        } */
-
 })
 
 export const { saveMyList } = myListSlice.actions;

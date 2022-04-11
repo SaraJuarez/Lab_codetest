@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { saveMovies } from '../redux/features/movies';
 import { getAllMovies } from "../Api/Api";
 import { StyledHome, StyledMovieContainer } from "../Components/Styles/Home.styled";
@@ -10,18 +10,17 @@ import MovieRate from "../Components/Molecules/MovieRate";
 import Button from "../Components/Atoms/Button";
 import { Link } from 'react-router-dom';
 import Loader from "../Components/Atoms/Loader";
+
 function Home() {
 
-    const movies = useSelector((state) => state.movies);
     const dispatch = useDispatch();
-    console.log(movies, 'HOME')
+
     const [moviesList, setMoviesList] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [movieId, setMovieId] = useState();
 
 
     function handleModalOpen(movieId) {
-        console.log(movieId, 'trololo')
         setMovieId(movieId)
         setModalOpen(true)
     }
@@ -48,7 +47,6 @@ function Home() {
             <StyledNav>
                 <h1>Home</h1>
                 <Link style={{ textDecoration: 'none' }} to="/myList"><Button title='Mi lista' /></Link>
-                {moviesList.length === 0 && <Loader />}
             </StyledNav>
             <StyledMovieContainer>
                 {moviesList.length > 0 ?

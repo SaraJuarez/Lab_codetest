@@ -11,7 +11,6 @@ function MovieCard(props) {
         setIsFlipped(!isFlipped)
     }
 
-
     return (
         <StyledMovieCard>
             <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
