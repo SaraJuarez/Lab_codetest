@@ -29,19 +29,19 @@ function Home() {
     function handleModalClose() {
         setModalOpen(false)
     }
-    /* 
-        useEffect(() => {
-            saveAllMovies()
-        }, []) */
+
+    useEffect(() => {
+        setTimeout(saveAllMovies, 3000)
+    }, [])
 
 
 
-    /*     const saveAllMovies = async () => {
-            let moviesList = await getAllMovies();
-            dispatch(saveMovies(moviesList.results))
-            setMoviesList(moviesList.results)
-        }
-     */
+    const saveAllMovies = async () => {
+        let moviesList = await getAllMovies();
+        dispatch(saveMovies(moviesList.results))
+        setMoviesList(moviesList.results)
+    }
+
     return (
         <StyledHome>
             {modalOpen && <ModalComponent content={<MovieRate handleModalClose={handleModalClose} movieId={movieId} />} handleClose={handleModalClose} open={modalOpen} />}
@@ -51,12 +51,14 @@ function Home() {
                 {moviesList.length === 0 && <Loader />}
             </StyledNav>
             <StyledMovieContainer>
-                {/*      {moviesList !== [] &&
+                {moviesList.length > 0 ?
                     moviesList.map((element, index) => {
                         return (
                             <MovieCard openModal={handleModalOpen} key={index} movie={element} />
                         )
-                    })} */}
+                    })
+                    : <Loader />
+                }
             </StyledMovieContainer>
         </StyledHome>
     )

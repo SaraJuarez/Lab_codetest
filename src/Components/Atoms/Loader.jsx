@@ -1,5 +1,5 @@
 import { StyledLoaderContainer } from '../Styles/Loader.styled';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import gsap, { Linear } from 'gsap';
 function Loader() {
 
@@ -28,10 +28,15 @@ function Loader() {
         })
     }
 
-    circles.forEach(dot => {
-        jump(dot.current, delay);
-        delay += 0.2;
-    });
+    useEffect(() => {
+        circles.forEach(dot => {
+            debugger
+            jump(dot.current, delay);
+            delay += 0.2;
+        });
+    }, [])
+
+
 
     return (
         <StyledLoaderContainer>
@@ -39,7 +44,6 @@ function Loader() {
             <div ref={circle2}></div>
             <div ref={circle3}></div>
         </StyledLoaderContainer>
-
     )
 }
 

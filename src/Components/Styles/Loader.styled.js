@@ -6,6 +6,7 @@ export const StyledLoaderContainer = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+;
 
     div {
         width: 20px;

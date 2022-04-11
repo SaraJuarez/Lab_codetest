@@ -5,6 +5,7 @@ export const StyledNav = styled.div`
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     @media ${device.laptop} {
         h1 {

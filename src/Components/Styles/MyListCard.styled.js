@@ -12,6 +12,11 @@ export const StyledMyListCard = styled.div`
     min-width: 80%;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 
+    @media ${device.mobileM} {
+        min-width: 0;
+        justify-content: space-between;
+    }
+
 `
 
 export const StyledMyListImage = styled.img`
@@ -26,6 +31,10 @@ export const StyledMyListImage = styled.img`
     @media ${device.tablet} { 
         width: 100px;
     }
+
+    @media ${device.mobileM} {
+        width: 60px;
+    }
 `
 
 export const StyledMyListDetails = styled.div`
@@ -35,6 +44,13 @@ export const StyledMyListDetails = styled.div`
 
     @media ${device.tablet} { 
         font-size: 12px;
+    }
+
+    @media ${device.mobileM} {
+        font-size: 10px;
+        width: auto;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 `
 
@@ -53,6 +69,10 @@ export const StyledMyListNumber = styled.div`
     @media ${device.tablet} { 
         font-size: 20px;
         padding: 5px 10px;
+    }
+
+    @media ${device.mobileM} {
+        font-size: 16px;
     }
     
 `

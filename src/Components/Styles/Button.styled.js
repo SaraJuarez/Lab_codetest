@@ -15,6 +15,8 @@ export const StyledButton = styled.div`
     }
 
     @media ${device.mobileM} {
+        min-width: 50px;
+        border-radius: 15px;
         p {
             font-size: 12px;
         }

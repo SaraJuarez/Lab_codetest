@@ -9,7 +9,7 @@ export const StyledHome = styled.div`
 `
 
 export const StyledMovieContainer = styled.div`
-    height: 100vh;
+    height: 100%;
     background-color: #E5E5E5;
     display: grid;
     grid-template-columns: repeat(4, 1fr);

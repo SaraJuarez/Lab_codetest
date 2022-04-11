@@ -1,13 +1,23 @@
 import styled from "styled-components";
-
+import { device } from '../Styles/device';
 export const StyledMyList = styled.div`
- background-color: #00CCF8;
+ background-color: #E5E5E5;
 
     h1 {
         margin: 0;
-        background-color: #FFFFFF;
         padding: 20px;
         border-radius: 15px;
+    }
+    @media ${device.laptop} {
+        h1 {
+            font-size: 28px;
+        }
+    }
+
+    @media ${device.tablet} { 
+        h1 {
+            font-size: 20px;
+        }
     }
 `
 
